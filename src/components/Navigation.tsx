@@ -1,13 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { trackNavigation } = useAnalytics();
 
   const routes = [
     // { name: "Projects", path: "/projects" },
@@ -36,6 +37,10 @@ const Navigation = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
+  const handleNavigation = (path: string) => {
+    trackNavigation(path);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 theme-transition ${
@@ -49,6 +54,7 @@ const Navigation = () => {
           to="/"
           className="text-lg font-medium tracking-tight hover:opacity-80 transition-opacity duration-200"
           aria-label="Home"
+          onClick={() => handleNavigation("/")}
         >
           Johny Jose
         </Link>
@@ -59,6 +65,7 @@ const Navigation = () => {
             <Link
               key={route.path}
               to={route.path}
+              onClick={() => handleNavigation(route.path)}
               className={`nav-item ${
                 location.pathname === route.path
                   ? "bg-secondary text-foreground"
@@ -97,6 +104,7 @@ const Navigation = () => {
             <Link
               key={route.path}
               to={route.path}
+              onClick={() => handleNavigation(route.path)}
               className={`text-xl ${
                 location.pathname === route.path
                   ? "text-foreground font-medium"

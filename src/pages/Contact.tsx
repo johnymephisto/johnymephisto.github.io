@@ -1,8 +1,12 @@
-
 import { useState } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useAnalytics } from "@/hooks/useAnalytics";
+import { useScrollTracking } from "@/hooks/useScrollTracking";
 
 const Contact = () => {
+  const { trackFormSubmission, trackExternalLink } = useAnalytics();
+  useScrollTracking(); // Add scroll tracking
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,21 +22,34 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
+      
+      // Track successful form submission
+      trackFormSubmission('contact', true);
       
       // Reset submitted state after 5 seconds
       setTimeout(() => {
         setSubmitted(false);
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      setIsSubmitting(false);
+      trackFormSubmission('contact', false);
+      // Handle error case
+    }
+  };
+
+  const handleSocialClick = (platform: string) => {
+    trackExternalLink(`${platform.toLowerCase()}.com`);
   };
 
   return (
@@ -91,6 +108,7 @@ const Contact = () => {
                     <a
                       key={platform}
                       href="#"
+                      onClick={() => handleSocialClick(platform)}
                       className="text-sm hover:text-primary transition-colors"
                     >
                       {platform}
