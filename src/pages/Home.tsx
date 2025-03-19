@@ -81,27 +81,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t">
+      {/* Footer - Simplified */}
+      <footer className="py-6 border-t">
         <div className="container px-6 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <div className="text-lg font-medium mb-2">ML Engineer</div>
-              <p className="text-sm text-muted-foreground">
-                © 2023 All rights reserved
-              </p>
-            </div>
-            <div className="flex space-x-6">
-              {["LinkedIn", "GitHub", "Twitter", "Email"].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
+          <div className="flex justify-center items-center">
+            <p className="text-sm text-muted-foreground">
+              © 2023 All rights reserved
+            </p>
           </div>
         </div>
       </footer>
