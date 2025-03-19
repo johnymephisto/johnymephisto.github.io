@@ -14,16 +14,13 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Get the base URL from Vite's environment variables
-const baseUrl = import.meta.env.BASE_URL;
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="system">
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={baseUrl}>
+        <BrowserRouter>
           <Navigation />
           <Routes>
             <Route path="/" element={<Home />} />
