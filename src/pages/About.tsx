@@ -3,14 +3,11 @@ import { BarChart, Binary, Brain, Code, Database, Server } from "lucide-react";
 
 const About = () => {
   const skills = [
-    { name: "Machine Learning", level: 90 },
-    { name: "Deep Learning", level: 85 },
-    { name: "Natural Language Processing", level: 80 },
-    { name: "Computer Vision", level: 75 },
-    { name: "Data Engineering", level: 85 },
-    { name: "MLOps", level: 80 },
-    { name: "Python", level: 95 },
-    { name: "TensorFlow/PyTorch", level: 85 },
+    "Machine Learning", "Deep Learning", "Natural Language Processing", "Computer Vision", 
+    "Data Engineering", "MLOps", "Python", "TensorFlow/PyTorch",
+    "scikit-learn", "Keras", "Neural Networks", "Data Visualization",
+    "SQL", "NoSQL", "AWS", "Azure",
+    "Git", "Docker", "Kubernetes", "CI/CD"
   ];
 
   const experiences = [
@@ -121,22 +118,17 @@ const About = () => {
           </div>
         </div>
 
-        {/* Technical Skills */}
+        {/* Technical Skills - Changed to a simple list */}
         <div className="mb-20 animate-slide-up" style={{ animationDelay: "0.4s" }}>
           <h2 className="text-2xl font-medium mb-6">Technical Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {skills.map((skill, index) => (
-              <div key={index}>
-                <div className="flex justify-between mb-1">
-                  <span className="text-sm font-medium">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-secondary rounded-full h-2">
-                  <div
-                    className="bg-primary h-2 rounded-full"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
+              <div 
+                key={index} 
+                className="bg-secondary/20 px-4 py-3 rounded-lg animate-slide-up text-center"
+                style={{ animationDelay: `${0.1 + index * 0.02}s` }}
+              >
+                <span>{skill}</span>
               </div>
             ))}
           </div>

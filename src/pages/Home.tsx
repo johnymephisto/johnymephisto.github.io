@@ -81,38 +81,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Technical Skills Section - Simplified */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container px-6 mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            <h2 className="section-title">Technical Skills</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              My expertise spans various aspects of machine learning and artificial intelligence
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-              {[
-                "PyTorch", "TensorFlow", "scikit-learn", "Keras", 
-                "Computer Vision", "NLP", "Deep Learning", "Neural Networks",
-                "ML Ops", "Data Engineering", "Python", "R",
-                "SQL", "NoSQL", "AWS", "Azure",
-                "Git", "Docker", "Kubernetes", "CI/CD"
-              ].map((skill, index) => (
-                <div 
-                  key={index} 
-                  className="bg-background/60 backdrop-blur-sm border border-border px-4 py-3 rounded-lg animate-slide-up"
-                  style={{ animationDelay: `${0.1 + index * 0.05}s` }}
-                >
-                  <span className="font-medium">{skill}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-8 border-t">
         <div className="container px-6 mx-auto">
