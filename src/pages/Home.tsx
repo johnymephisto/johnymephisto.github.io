@@ -1,5 +1,5 @@
 
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Notebook} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -20,14 +20,13 @@ const Home = () => {
               </h1>
               
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                I build machine learning models and systems that solve complex problems 
-                and deliver real-world impact.
+                I like solving problems and exploring tools.
               </p>
 
               {/* Social Links */}
               <div className="flex justify-center space-x-4 py-6">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/johnymephisto" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
@@ -36,7 +35,7 @@ const Home = () => {
                   <Github className="h-5 w-5" />
                 </a>
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/in/johny-jose/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
@@ -45,16 +44,16 @@ const Home = () => {
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a 
-                  href="https://twitter.com" 
+                  href="https://medium.com/@johnymephisto" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
-                  aria-label="Twitter"
+                  aria-label="Medium"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <Notebook className="h-5 w-5" />
                 </a>
                 <a 
-                  href="mailto:contact@example.com" 
+                  href="mailto:johnyjose95@gmail.com" 
                   className="p-3 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
                   aria-label="Email"
                 >
@@ -70,11 +69,11 @@ const Home = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                {/* <Button asChild variant="outline" size="lg">
                   <Link to="/projects">
                     View Projects
                   </Link>
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>
@@ -86,7 +85,7 @@ const Home = () => {
         <div className="container px-6 mx-auto">
           <div className="flex justify-center items-center">
             <p className="text-sm text-muted-foreground">
-              © 2023 All rights reserved
+              © 2025 Johny Jose
             </p>
           </div>
         </div>

@@ -10,7 +10,7 @@ const Navigation = () => {
   const location = useLocation();
 
   const routes = [
-    { name: "Projects", path: "/projects" },
+    // { name: "Projects", path: "/projects" },
     { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -50,7 +50,7 @@ const Navigation = () => {
           className="text-lg font-medium tracking-tight hover:opacity-80 transition-opacity duration-200"
           aria-label="Home"
         >
-          ML Engineer
+          Johny Jose
         </Link>
 
         {/* Desktop Navigation */}

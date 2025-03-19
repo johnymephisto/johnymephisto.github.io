@@ -1,5 +1,4 @@
-
-import { BarChart, Binary, Brain, Code, Database, Server } from "lucide-react";
+import { Bug, Binary, Brain, Code, Database, Server } from "lucide-react";
 
 const About = () => {
   const skills = [
@@ -13,45 +12,42 @@ const About = () => {
   const experiences = [
     {
       title: "Senior Machine Learning Engineer",
-      company: "AI Solutions Inc.",
-      period: "2021 - Present",
-      description:
-        "Leading development of production ML systems. Designed and implemented sophisticated deep learning models for computer vision and NLP tasks.",
+      company: "eyeo GmbH",
+      period: "2020 - Present",
+      description: [
+        "Developed and optimized ad classification algorithms using Graph Convolution Neural Networks for a large user base, achieving a prediction latency of ~30 ms and reducing the model size to ~700 KB for browser deployment.",
+        "Built a real-time ML platform on Google Cloud (Vertex AI) for analyzing millions of daily data points, incorporating drift detection to minimize re-deployment time.",
+        "Led the creation of a benchmarking system to ensure experiment uniformity and effective model performance monitoring.",
+        "Automated CI pipelines, increasing test coverage and containerizing applications for seamless integration with the ML pipeline."
+      ],
     },
     {
-      title: "Machine Learning Engineer",
-      company: "Data Insights Corp",
-      period: "2018 - 2021",
-      description:
-        "Developed predictive models and recommendation systems. Optimized ML pipelines and infrastructure for scalability.",
+      title: "Deep Learning Engineer",
+      company: "CloudSek",
+      period: "2019 - 2020",
+      description: [
+        "Developed a Deep Learning framework for detecting fake domains, including an Image Recognition model that outperformed Google's API using YOLO, RetinaNet, and a Siamese Network in PyTorch.",
+        "Implemented an NLP-based model with BERT for domain classification, significantly reducing processing times and handling up to 1 million data points daily.",
+        "Enhanced the Domain Security pipeline, optimizing tasks from data crawling to inference with containers and a custom Redis queue, cutting processing times by 50%.",
+        "Created a repository classification system to detect leaked client data, improving reliability by 30% using XGBoost and an Ensemble of Multilayer Perceptron models."
+      ],
     },
     {
-      title: "Data Scientist",
-      company: "Tech Innovations",
-      period: "2016 - 2018",
-      description:
-        "Analyzed large datasets to extract valuable insights. Created data visualization dashboards and machine learning prototypes.",
+      title: "Software Engineer",
+      company: "Vanenburg Software",
+      period: "2017 - 2019",
+      description: [
+        "Worked on various machine learning projects like predictions and trends on time-series data, text classification, image classification using transfer learning, chatbots, etc.",
+      ],
     },
   ];
 
   const education = [
     {
-      degree: "Ph.D. in Computer Science",
-      specialization: "Machine Learning",
-      institution: "University of Technology",
-      year: "2016",
-    },
-    {
-      degree: "M.S. in Data Science",
-      specialization: "Artificial Intelligence",
-      institution: "Science University",
-      year: "2013",
-    },
-    {
-      degree: "B.S. in Computer Engineering",
-      specialization: "Software Systems",
-      institution: "Institute of Technology",
-      year: "2011",
+      degree: "B. Tech Computer Science and Engineering",
+      specialization: "8.58 CGPA",
+      institution: "Rajagiri School of Engineering and Technology",
+      year: "2013 - 2017",
     },
   ];
 
@@ -62,8 +58,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto text-center mb-20 animate-slide-up" style={{ animationDelay: "0.1s" }}>
           <h1 className="section-title">About Me</h1>
           <p className="text-muted-foreground">
-            A passionate machine learning engineer dedicated to building intelligent systems
-            that solve complex problems and drive innovation.
+            I have always found solving problems interesting. Through the years, the tools I use and the problems I solve have changed. 
           </p>
         </div>
 
@@ -78,7 +73,7 @@ const About = () => {
           </div>
           
           <div className="md:col-span-2 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-            <h2 className="text-2xl font-medium mb-6">Biography</h2>
+            {/* <h2 className="text-2xl font-medium mb-6">Biography</h2> */}
             <div className="space-y-4 text-muted-foreground">
               <p>
                 With over 7 years of experience in machine learning and artificial intelligence,
@@ -100,11 +95,11 @@ const About = () => {
             <div className="grid grid-cols-2 gap-6 mt-10">
               <div>
                 <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Email</h3>
-                <p>contact@mlportfolio.com</p>
+                <p>johnyjose95@gmail.com</p>
               </div>
               <div>
                 <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Location</h3>
-                <p>San Francisco, CA</p>
+                <p>Berlin, Germany</p>
               </div>
               <div>
                 <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Employment</h3>
@@ -112,7 +107,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Languages</h3>
-                <p>English, Spanish</p>
+                <p>English, Malayalam</p>
               </div>
             </div>
           </div>
@@ -146,7 +141,11 @@ const About = () => {
                 <div className="text-sm text-muted-foreground mb-1">{exp.period}</div>
                 <h3 className="text-xl font-medium mb-1">{exp.title}</h3>
                 <div className="text-muted-foreground mb-3">{exp.company}</div>
-                <p className="text-muted-foreground">{exp.description}</p>
+                <ul className="list-disc pl-4 text-muted-foreground space-y-1">
+                  {exp.description.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -201,9 +200,9 @@ const About = () => {
                 description: "Automating the ML lifecycle from development to deployment.",
               },
               {
-                icon: <BarChart className="h-8 w-8" />,
-                title: "Data Analysis",
-                description: "Extracting insights through statistical analysis and visualization.",
+                icon: <Bug className="h-8 w-8" />,
+                title: "Debugging",
+                description: "I enjoy debugging and finding what goes wrong.",
               },
             ].map((area, index) => (
               <div key={index} className="glass p-8 rounded-xl">

@@ -1,69 +1,46 @@
-
 import { useState } from "react";
-import { ArrowRight, CalendarIcon, Search } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowUpRight, CalendarIcon, Search } from "lucide-react";
 
 type Post = {
-  id: number;
   title: string;
   excerpt: string;
   date: string;
-  category: string;
+  categories: string[];
   readTime: string;
+  url: string;
 };
 
 const posts: Post[] = [
   {
-    id: 1,
-    title: "Explainable AI: Making ML Models Transparent",
-    excerpt: "How explainable AI techniques help us understand complex machine learning models and build trust with users and stakeholders.",
-    date: "May 28, 2023",
-    category: "Machine Learning",
-    readTime: "5 min read",
+    title: "An interesting use case for the ML clustering algorithm",
+    excerpt: "Clustering, an unsupervised ML algorithm, can be used to extract dominant colors from an image by grouping similar pixel values.",
+    date: "Mar 2019",
+    categories: ["Computer Vision", "ML", "Python", "Clustering"],
+    readTime: "2 min read",
+    url: "https://medium.com/analytics-vidhya/an-interesting-use-case-for-the-ml-clustering-algorithm-7901278164e7",
   },
   {
-    id: 2,
-    title: "Transformers in NLP: Beyond BERT",
-    excerpt: "Exploring the latest innovations in transformer architecture for natural language processing and how they're advancing the field.",
-    date: "April 15, 2023",
-    category: "Natural Language Processing",
-    readTime: "7 min read",
+    title: "Target Class-Labels in Prediction result of Tensorflow Estimator API in ML Engine",
+    excerpt: "To include class names in TensorFlow Estimators API predictions on Cloud ML Engine, use tf.nn.softmax for probabilities, tf.argmax and tf.gather for predicted class names, and reshape indices to map all class names to predictions.",
+    date: "Feb 2019",
+    categories: ["Tensorflow", "GCP", "ML", "Python"],
+    readTime: "3 min read",
+    url: "https://medium.com/analytics-vidhya/target-class-labels-in-prediction-result-of-tensorflow-estimator-api-in-ml-engine-439f23cc4047",
   },
   {
-    id: 3,
-    title: "Ethical Considerations in Machine Learning",
-    excerpt: "Addressing bias, fairness, and transparency in modern ML systems to ensure responsible AI development and deployment.",
-    date: "March 10, 2023",
-    category: "Ethics",
-    readTime: "6 min read",
-  },
-  {
-    id: 4,
-    title: "Building Efficient Data Pipelines for ML",
-    excerpt: "Best practices for creating scalable, maintainable data pipelines that power machine learning applications.",
-    date: "February 22, 2023",
-    category: "Data Engineering",
-    readTime: "8 min read",
-  },
-  {
-    id: 5,
-    title: "The State of Reinforcement Learning in 2023",
-    excerpt: "An overview of the latest advancements in reinforcement learning algorithms and applications.",
-    date: "January 18, 2023",
-    category: "Reinforcement Learning",
-    readTime: "9 min read",
-  },
-  {
-    id: 6,
-    title: "From Research to Production: Deploying ML Models",
-    excerpt: "A comprehensive guide to transitioning machine learning models from research environments to production systems.",
-    date: "December 5, 2022",
-    category: "MLOps",
-    readTime: "10 min read",
+    title: "How to Recursively Delete Directories from Google Cloud Storage Bucket using API's",
+    excerpt: "Recursively delete directories in a Google Cloud Storage bucket by using the Objects: list API with a prefix to list all objects and the Objects: delete API to remove them, as GCS has a flat namespace without true directories.",
+    date: "Feb 2018",
+    categories: ["GCP", "Python"],
+    readTime: "2 min read",
+    url: "https://medium.com/@johnymephisto/how-to-recursively-delete-directories-from-google-cloud-storage-bucket-using-apis-fd800b72f9cf",
   },
 ];
 
-const categories = Array.from(new Set(posts.map((post) => post.category))).sort();
+// Get unique categories from all posts
+const categories = Array.from(
+  new Set(posts.flatMap((post) => post.categories))
+).sort();
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -76,7 +53,9 @@ const Blog = () => {
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
       
-    const matchesCategory = selectedCategory ? post.category === selectedCategory : true;
+    const matchesCategory = selectedCategory 
+      ? post.categories.includes(selectedCategory)
+      : true;
     
     return matchesSearch && matchesCategory;
   });
@@ -87,7 +66,7 @@ const Blog = () => {
         <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
           <h1 className="section-title">Blog</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Thoughts, insights, and updates on machine learning, AI, and related technologies.
+            Articles I've written about machine learning, deep learning, and software engineering.
           </p>
         </div>
 
@@ -134,13 +113,25 @@ const Blog = () => {
         {/* Posts */}
         <div className="mt-12 space-y-10">
           {filteredPosts.map((post, index) => (
-            <div 
-              key={post.id}
-              className="glass p-8 rounded-xl group hover:shadow-lg transition-shadow duration-300 animate-slide-up"
+            <a 
+              key={index}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="block glass p-8 rounded-xl group hover:shadow-lg transition-all duration-300 animate-slide-up hover:-translate-y-1"
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
-              <div className="flex items-center space-x-3 text-sm text-muted-foreground mb-4">
-                <span>{post.category}</span>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-4">
+                <div className="flex flex-wrap gap-2">
+                  {post.categories.map((category, i) => (
+                    <span
+                      key={i}
+                      className="bg-secondary/50 px-2 py-1 rounded-md text-xs"
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
                 <span>•</span>
                 <div className="flex items-center">
                   <CalendarIcon className="h-3 w-3 mr-1" />
@@ -150,17 +141,14 @@ const Blog = () => {
                 <span>{post.readTime}</span>
               </div>
 
-              <h2 className="text-2xl font-medium mb-3">{post.title}</h2>
-              <p className="text-muted-foreground mb-6">{post.excerpt}</p>
-              
-              <Link
-                to={`/blog/${post.id}`}
-                className="inline-flex items-center text-sm font-medium group-hover:underline"
-              >
-                Read article
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-2xl font-medium mb-3 group-hover:text-primary transition-colors">{post.title}</h2>
+                  <p className="text-muted-foreground">{post.excerpt}</p>
+                </div>
+                <ArrowUpRight className="h-6 w-6 flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
+              </div>
+            </a>
           ))}
         </div>
 
