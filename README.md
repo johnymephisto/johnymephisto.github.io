@@ -1,5 +1,7 @@
 Portfolio 
 
+Lovable.dev helped me wih the beautiful UI. Even an ML engineer like myself can build beautiful and reactive UI now. Wow!
+
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Follow these steps:

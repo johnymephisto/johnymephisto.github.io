@@ -3,10 +3,9 @@ import { Bug, Binary, Brain, Code, Database, Server } from "lucide-react";
 const About = () => {
   const skills = [
     "Machine Learning", "Deep Learning", "Natural Language Processing", "Computer Vision", 
-    "Data Engineering", "MLOps", "Python", "TensorFlow/PyTorch",
-    "scikit-learn", "Keras", "Neural Networks", "Data Visualization",
-    "SQL", "NoSQL", "AWS", "Azure",
-    "Git", "Docker", "Kubernetes", "CI/CD"
+    "Time Series", "Reinforcement Learning", "RAG", "Data Engineering", "MLOps", "LLMOps","Python", "TensorFlow/PyTorch",
+    "SQL/NoSQL", "AWS/GCP/Azure", "System Design",
+    "Ray", "Docker", "Kubernetes", "CI/CD", "Kubeflow/MLFLow"
   ];
 
   const experiences = [
@@ -45,7 +44,7 @@ const About = () => {
   const education = [
     {
       degree: "B. Tech Computer Science and Engineering",
-      specialization: "8.58 CGPA",
+      // specialization: "8.58 CGPA",
       institution: "Rajagiri School of Engineering and Technology",
       year: "2013 - 2017",
     },
@@ -81,14 +80,15 @@ const About = () => {
                 and technological advancement.
               </p>
               <p>
-                My expertise spans various domains including computer vision, natural language processing,
-                and reinforcement learning. I'm passionate about creating scalable ML systems that can 
-                operate effectively in production environments.
+                My expertise spans various domains including computer vision, natural language processing, time series and classic machine learning. 
+                I'm an ML Engineer who is a builder first so I like to build meticulously engineered systems that are scalable and ready for the real world.
               </p>
               <p>
-                Throughout my career, I've collaborated with cross-functional teams to deliver
-                impactful solutions across industries including healthcare, finance, and e-commerce.
-                I'm constantly learning and exploring new techniques to stay at the forefront of AI innovation.
+                Throughout my career, I have worked on variety of projects in different domains like Cybersecurity, manufacturing, Finance, Adtech, etc. This was interesting
+                as I could explore the different type of problems that could be solved using Machine Learning.
+              </p>
+              <p>
+                In my free time, I do a lot of sports and play the guitar. Currently obsessed with bouldering :)
               </p>
             </div>
 
@@ -191,8 +191,8 @@ const About = () => {
               },
               {
                 icon: <Database className="h-8 w-8" />,
-                title: "Data Engineering",
-                description: "Creating efficient data pipelines and storage solutions.",
+                title: "System Architecture and Design",
+                description: "Creating efficient architecture and solutions.",
               },
               {
                 icon: <Server className="h-8 w-8" />,

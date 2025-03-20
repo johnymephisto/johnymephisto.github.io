@@ -1,7 +1,7 @@
-
 import { ArrowRight, Github, Linkedin, Mail, Notebook} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { TypeWriter } from "@/components/TypeWriter";
 
 const Home = () => {
   return (
@@ -11,17 +11,20 @@ const Home = () => {
         <div className="container px-6 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <div className="space-y-6 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
-                Machine Learning Engineer
-              </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Creating intelligent solutions
+                <TypeWriter 
+                  text="Hey there :)" 
+                  delay={150}
+                />
               </h1>
               
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                I like solving problems and exploring tools.
+                I am Johny Jose, a Machine Learning Engineer. I work at eyeo building ML powered adblocking solutions. I like solving problems and exploring tools.
               </p>
+              <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+                Machine Learning Engineer
+              </div>
 
               {/* Social Links */}
               <div className="flex justify-center space-x-4 py-6">
@@ -69,11 +72,6 @@ const Home = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                {/* <Button asChild variant="outline" size="lg">
-                  <Link to="/projects">
-                    View Projects
-                  </Link>
-                </Button> */}
               </div>
             </div>
           </div>
