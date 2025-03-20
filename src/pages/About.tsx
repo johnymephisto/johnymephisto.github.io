@@ -95,7 +95,9 @@ const About = () => {
             <div className="grid grid-cols-2 gap-6 mt-10">
               <div>
                 <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Email</h3>
-                <p>johnyjose95@gmail.com</p>
+                <p><a href="mailto:johnyjose95@gmail.com" className="font-medium hover:text-primary transition-colors">
+                    johnyjose95@gmail.com
+                  </a></p>
               </div>
               <div>
                 <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Location</h3>
