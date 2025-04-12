@@ -51,168 +51,176 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24">
-      <div className="section-container">
-        {/* Hero Section */}
-        <div className="max-w-3xl mx-auto text-center mb-20 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          <h1 className="section-title">About Me</h1>
-          <p className="text-muted-foreground">
-            I have always found solving problems interesting. Through the years, the tools I use and the problems I solve have changed. 
-          </p>
-        </div>
-
-        {/* Bio Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
-          <div className="md:col-span-1 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <div className="aspect-square rounded-2xl overflow-hidden bg-secondary/30 flex items-center justify-center mb-6">
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Brain className="h-24 w-24 text-primary/30 animate-pulse-slow" />
-              </div>
-            </div>
+    <div className="min-h-screen pt-24 pb-16">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-5xl mx-auto">
+          {/* Hero Section */}
+          <div className="max-w-3xl mx-auto text-center mb-20 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+            <h1 className="section-title">About Me</h1>
+            <p className="text-muted-foreground">
+              I have always found solving problems interesting. Through the years, the tools I use and the problems I solve have changed. 
+            </p>
           </div>
-          
-          <div className="md:col-span-2 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-            {/* <h2 className="text-2xl font-medium mb-6">Biography</h2> */}
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                With over 7 years of experience in machine learning and artificial intelligence,
-                I specialize in developing sophisticated algorithms and models that drive business value
-                and technological advancement.
-              </p>
-              <p>
-                My expertise spans various domains including computer vision, natural language processing, time series and classic machine learning. 
-                I'm an ML Engineer who is a builder first so I like to build meticulously engineered systems that are scalable and ready for the real world.
-              </p>
-              <p>
-                Throughout my career, I have worked on variety of projects in different domains like Cybersecurity, manufacturing, Finance, Adtech, etc. This was interesting
-                as I could explore the different type of problems that could be solved using Machine Learning.
-              </p>
-              <p>
-                In my free time, I do a lot of sports and play the guitar. Currently obsessed with bouldering :)
-              </p>
-            </div>
 
-            <div className="grid grid-cols-2 gap-6 mt-10">
-              <div>
-                <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Email</h3>
-                <p><a href="mailto:johnyjose95@gmail.com" className="font-medium hover:text-primary transition-colors">
-                    johnyjose95@gmail.com
-                  </a></p>
-              </div>
-              <div>
-                <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Location</h3>
-                <p>Berlin, Germany</p>
-              </div>
-              <div>
-                <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Employment</h3>
-                <p>Open to opportunities</p>
-              </div>
-              <div>
-                <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Languages</h3>
-                <p>English, Malayalam</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Technical Skills - Changed to a simple list */}
-        <div className="mb-20 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-          <h2 className="text-2xl font-medium mb-6">Technical Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
-              <div 
-                key={index} 
-                className="bg-secondary/20 px-4 py-3 rounded-lg animate-slide-up text-center"
-                style={{ animationDelay: `${0.1 + index * 0.02}s` }}
-              >
-                <span>{skill}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Experience */}
-        <div className="mb-20 animate-slide-up" style={{ animationDelay: "0.5s" }}>
-          <h2 className="text-2xl font-medium mb-6">Professional Experience</h2>
-          <div className="space-y-10">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-10 pb-8 border-l border-border">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
+          {/* Rest of the content */}
+          <div className="space-y-8">
+            {/* Bio Section */}
+            <div className="bg-card text-card-foreground rounded-lg border shadow-sm p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="md:col-span-1 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+                  <div className="aspect-square rounded-2xl overflow-hidden bg-secondary/30 flex items-center justify-center mb-6">
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <Brain className="h-24 w-24 text-primary/30 animate-pulse-slow" />
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground mb-1">{exp.period}</div>
-                <h3 className="text-xl font-medium mb-1">{exp.title}</h3>
-                <div className="text-muted-foreground mb-3">{exp.company}</div>
-                <ul className="list-disc pl-4 text-muted-foreground space-y-1">
-                  {exp.description.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+                
+                <div className="md:col-span-2 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+                  <div className="space-y-4 text-muted-foreground">
+                    <p>
+                      With over 7 years of experience in machine learning and artificial intelligence,
+                      I specialize in developing sophisticated algorithms and models that drive business value
+                      and technological advancement.
+                    </p>
+                    <p>
+                      My expertise spans various domains including computer vision, natural language processing, time series and classic machine learning. 
+                      I'm an ML Engineer who is a builder first so I like to build meticulously engineered systems that are scalable and ready for the real world.
+                    </p>
+                    <p>
+                      Throughout my career, I have worked on variety of projects in different domains like Cybersecurity, manufacturing, Finance, Adtech, etc. This was interesting
+                      as I could explore the different type of problems that could be solved using Machine Learning.
+                    </p>
+                    <p>
+                      In my free time, I do a lot of sports and play the guitar. Currently obsessed with bouldering :)
+                    </p>
+                  </div>
 
-        {/* Education */}
-        <div className="mb-20 animate-slide-up" style={{ animationDelay: "0.6s" }}>
-          <h2 className="text-2xl font-medium mb-6">Education</h2>
-          <div className="space-y-10">
-            {education.map((edu, index) => (
-              <div key={index} className="relative pl-10 pb-8 border-l border-border">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
+                  <div className="grid grid-cols-2 gap-6 mt-10">
+                    <div>
+                      <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Email</h3>
+                      <p><a href="mailto:johnyjose95@gmail.com" className="font-medium hover:text-primary transition-colors">
+                          johnyjose95@gmail.com
+                        </a></p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Location</h3>
+                      <p>Berlin, Germany</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Employment</h3>
+                      <p>Open to opportunities</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Languages</h3>
+                      <p>English, Malayalam</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground mb-1">{edu.year}</div>
-                <h3 className="text-xl font-medium mb-1">{edu.degree}</h3>
-                <div className="text-muted-foreground mb-1">{edu.specialization}</div>
-                <p className="text-muted-foreground">{edu.institution}</p>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Core Areas */}
-        <div className="animate-slide-up" style={{ animationDelay: "0.7s" }}>
-          <h2 className="text-2xl font-medium mb-10">Core Areas</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Brain className="h-8 w-8" />,
-                title: "Machine Learning",
-                description: "Model development, feature engineering, and algorithm optimization.",
-              },
-              {
-                icon: <Binary className="h-8 w-8" />,
-                title: "Deep Learning",
-                description: "Neural network architecture design and implementation.",
-              },
-              {
-                icon: <Code className="h-8 w-8" />,
-                title: "Software Engineering",
-                description: "Building robust, scalable, and maintainable ML applications.",
-              },
-              {
-                icon: <Database className="h-8 w-8" />,
-                title: "System Architecture and Design",
-                description: "Creating efficient architecture and solutions.",
-              },
-              {
-                icon: <Server className="h-8 w-8" />,
-                title: "MLOps",
-                description: "Automating the ML lifecycle from development to deployment.",
-              },
-              {
-                icon: <Bug className="h-8 w-8" />,
-                title: "Debugging",
-                description: "I enjoy debugging and finding what goes wrong.",
-              },
-            ].map((area, index) => (
-              <div key={index} className="glass p-8 rounded-xl">
-                <div className="mb-4">{area.icon}</div>
-                <h3 className="text-xl font-medium mb-2">{area.title}</h3>
-                <p className="text-muted-foreground">{area.description}</p>
+            {/* Technical Skills */}
+            <div className="bg-card text-card-foreground rounded-lg border shadow-sm p-6 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+              <h2 className="text-2xl font-medium mb-6">Technical Skills</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {skills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-secondary/20 px-4 py-3 rounded-lg animate-slide-up text-center"
+                    style={{ animationDelay: `${0.1 + index * 0.02}s` }}
+                  >
+                    <span>{skill}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Experience */}
+            <div className="bg-card text-card-foreground rounded-lg border shadow-sm p-6 animate-slide-up" style={{ animationDelay: "0.5s" }}>
+              <h2 className="text-2xl font-medium mb-6">Professional Experience</h2>
+              <div className="space-y-10">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="relative pl-10 pb-8 border-l border-border">
+                    <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    </div>
+                    <div className="text-sm text-muted-foreground mb-1">{exp.period}</div>
+                    <h3 className="text-xl font-medium mb-1">{exp.title}</h3>
+                    <div className="text-muted-foreground mb-3">{exp.company}</div>
+                    <ul className="list-disc pl-4 text-muted-foreground space-y-1">
+                      {exp.description.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Education */}
+            <div className="bg-card text-card-foreground rounded-lg border shadow-sm p-6 animate-slide-up" style={{ animationDelay: "0.6s" }}>
+              <h2 className="text-2xl font-medium mb-6">Education</h2>
+              <div className="space-y-10">
+                {education.map((edu, index) => (
+                  <div key={index} className="relative pl-10 pb-8 border-l border-border">
+                    <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    </div>
+                    <div className="text-sm text-muted-foreground mb-1">{edu.year}</div>
+                    <h3 className="text-xl font-medium mb-1">{edu.degree}</h3>
+                    <p className="text-muted-foreground">{edu.institution}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Core Areas */}
+            <div className="bg-card text-card-foreground rounded-lg border shadow-sm p-6 animate-slide-up" style={{ animationDelay: "0.7s" }}>
+              <h2 className="text-2xl font-medium mb-10">Core Areas</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    icon: <Brain className="h-8 w-8" />,
+                    title: "Machine Learning",
+                    description: "Model development, feature engineering, and algorithm optimization.",
+                  },
+                  {
+                    icon: <Binary className="h-8 w-8" />,
+                    title: "Deep Learning",
+                    description: "Neural network architecture design and implementation.",
+                  },
+                  {
+                    icon: <Code className="h-8 w-8" />,
+                    title: "Software Engineering",
+                    description: "Building robust, scalable, and maintainable ML applications.",
+                  },
+                  {
+                    icon: <Database className="h-8 w-8" />,
+                    title: "System Architecture and Design",
+                    description: "Creating efficient architecture and solutions.",
+                  },
+                  {
+                    icon: <Server className="h-8 w-8" />,
+                    title: "MLOps",
+                    description: "Automating ML pipelines and managing model lifecycle.",
+                  },
+                  {
+                    icon: <Bug className="h-8 w-8" />,
+                    title: "Problem Solving",
+                    description: "Analytical thinking and creative solution development.",
+                  },
+                ].map((area, index) => (
+                  <div
+                    key={index}
+                    className="p-6 rounded-xl bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                  >
+                    <div className="mb-4">{area.icon}</div>
+                    <h3 className="text-lg font-medium mb-2">{area.title}</h3>
+                    <p className="text-muted-foreground text-sm">{area.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

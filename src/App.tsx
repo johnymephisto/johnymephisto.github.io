@@ -7,6 +7,8 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { useEffect } from "react";
 import { initGA, logPageView } from "./lib/analytics";
 import Navigation from "./components/Navigation";
+import Background from "./components/Background/Background";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
@@ -34,6 +36,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="system">
       <TooltipProvider>
+        <Background />
+        <CustomCursor />
         <Toaster />
         <Sonner />
         <BrowserRouter>
